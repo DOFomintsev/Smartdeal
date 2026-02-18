@@ -3,59 +3,130 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Smart Deal — выгодные предложения</title>
+<title>Smart Deal — Telegram Mini App</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-body{
+
+*{
   margin:0;
-  font-family:-apple-system,BlinkMacSystemFont,sans-serif;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Inter', sans-serif;
   background:#000;
   color:#fff;
-  text-align:center;
+  overflow-x:hidden;
 }
 
+/* Глубокий фон */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(29,185,84,0.15), transparent 40%),
+    radial-gradient(circle at 80% 0%, rgba(255,255,255,0.05), transparent 40%);
+  z-index:-1;
+}
+
+/* Контейнер */
 .container{
-  padding:60px 20px;
-  max-width:700px;
+  max-width:900px;
   margin:auto;
+  padding:100px 20px;
+  text-align:center;
+  animation:fadeUp 1.2s ease forwards;
+  opacity:0;
 }
 
+/* Заголовок */
 h1{
-  font-size:32px;
-  margin-bottom:10px;
+  font-size:48px;
+  font-weight:800;
+  letter-spacing:-1px;
+  margin-bottom:20px;
+  background:linear-gradient(90deg,#fff,#1DB954);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
 }
 
-p{
+/* Подзаголовок */
+.subtitle{
+  font-size:18px;
   opacity:.7;
+  max-width:600px;
+  margin:auto;
   line-height:1.6;
 }
 
+/* Premium кнопка */
 .button{
   display:inline-block;
-  margin-top:30px;
-  padding:16px 28px;
-  background:#1DB954;
+  margin-top:40px;
+  padding:18px 32px;
+  background:linear-gradient(135deg,#1DB954,#0f9d40);
   color:#000;
   font-weight:700;
-  border-radius:14px;
+  border-radius:18px;
   text-decoration:none;
-  transition:.2s;
+  transition:all .3s ease;
+  box-shadow:0 20px 40px rgba(29,185,84,.25);
 }
 
 .button:hover{
-  transform:scale(1.05);
+  transform:translateY(-3px) scale(1.03);
+  box-shadow:0 30px 60px rgba(29,185,84,.4);
 }
 
+/* Glass блок */
 .section{
-  margin-top:60px;
+  margin-top:80px;
+  padding:40px;
+  border-radius:24px;
+  background:rgba(255,255,255,0.05);
+  backdrop-filter:blur(20px);
+  border:1px solid rgba(255,255,255,0.08);
   text-align:left;
+  transition:.4s;
+}
+
+.section:hover{
+  border:1px solid rgba(29,185,84,.3);
+}
+
+.section h2{
+  font-size:22px;
+  margin-bottom:15px;
+}
+
+.section p{
+  opacity:.75;
+  line-height:1.7;
+}
+
+/* Анимация появления */
+@keyframes fadeUp{
+  from{
+    transform:translateY(40px);
+    opacity:0;
+  }
+  to{
+    transform:translateY(0);
+    opacity:1;
+  }
 }
 
 footer{
-  margin-top:60px;
+  margin-top:100px;
+  text-align:center;
   opacity:.4;
   font-size:14px;
 }
+
 </style>
 </head>
 
@@ -64,9 +135,11 @@ footer{
 <div class="container">
 
 <h1>Smart Deal</h1>
-<p>
-Smart Deal — сервис подбора выгодных предложений на популярные товары.
-Мы помогаем пользователям находить лучшие цены и актуальные предложения на маркетплейсах.
+
+<p class="subtitle">
+Smart Deal — интеллектуальный сервис рекомендаций выгодных предложений 
+в формате Telegram Mini App.
+Мы помогаем пользователям находить актуальные и интересные товары.
 </p>
 
 <a href="https://t.me/NiceGadget_Bot" class="button">
@@ -76,16 +149,16 @@ Smart Deal — сервис подбора выгодных предложени
 <div class="section">
 <h2>О сервисе</h2>
 <p>
-Smart Deal анализирует предложения маркетплейсов и помогает пользователям быстро находить выгодные варианты.
-Сервис работает в формате Telegram Mini App.
+Smart Deal — информационная платформа, предоставляющая подбор и рекомендации товаров.
+Сервис не осуществляет продажу и не является интернет-магазином.
 </p>
 </div>
 
 <div class="section">
-<h2>Политика конфиденциальности</h2>
+<h2>Конфиденциальность</h2>
 <p>
-Мы не собираем персональные данные пользователей.
-Приложение использует стандартные инструменты Telegram для работы Mini App.
+Мы не собираем и не храним персональные данные пользователей.
+Работа осуществляется через официальные инструменты Telegram Mini Apps.
 </p>
 </div>
 
@@ -93,6 +166,14 @@ Smart Deal анализирует предложения маркетплейс�
 <h2>Контакты</h2>
 <p>
 Email: DOFomintsev@yandex.ru
+</p>
+</div>
+
+<div class="section">
+<h2>Правовая информация</h2>
+<p>
+Smart Deal является информационным сервисом.
+Все товарные знаки принадлежат их правообладателям.
 </p>
 </div>
 
